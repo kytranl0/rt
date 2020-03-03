@@ -4,6 +4,13 @@ import ReactDOM from 'react-dom';
 //End
 import './index.css';
 class Square extends React.Component {
+    render() {
+        return (
+            <button className="square" onClick={() => this.props.onClickk()}>{this.props.value}</button>
+        )
+    }
+}
+class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,17 +25,12 @@ class Square extends React.Component {
     }
     render() {
         return (
-            <button onClick={this.activateQuan} className="square">{this.state.val}</button>
-        )
-    }
-}
-class Game extends React.Component {
-    render() {
-        return (
-            //css ref
+            //We are passing value and onClickk props
             <div className="game">
                 <div className="board-row">
-                    <Square></Square>
+                    <Square 
+                    value={this.state.val} 
+                    onClickk={() => this.activateQuan()} />
                 </div>
             </div>
         );
