@@ -3,25 +3,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //End
 import './index.css';
-
+class Square extends React.Component {
+    render() {
+        return (
+            <button className="square">{this.props.value}</button>
+        )
+    }
+}
 class Game extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {ele: 'YOYOYO'};
-        this.activateQuan = this.activateQuan.bind(this);
-    }
-
-    activateQuan() {
-        this.setState(state => ({
-            ele: state.ele + 'YOYOYO'   
-        }));
-    }
-
     render() {
         return (
             //css ref
             <div className="game">
-                <h1 onClick={this.activateQuan}>{this.state.ele}</h1>
+                <div className="board-row">
+                    <Square value={1}></Square>
+                </div>
             </div>
         );
     }
